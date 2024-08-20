@@ -54,21 +54,22 @@ export default function Home() {
   if(!submitted) {
     return (
       <main className="bg-[#041740] min-h-screen flex justify-center items-center">
-        <div className="bg-[#162D68] w-1/4 min-w-[400px] flex flex-col justify-center items-center p-8 rounded-2xl text-white mobile:min-w-full">
-          <div className="w-full">
-            <div className="mb-4 text-xl font-semibold">
+        <div className="bg-[#162D68] w-1/4 min-w-[400px] flex flex-col justify-center items-center gap-8 p-8 rounded-2xl text-white mobile:min-w-full">
+          <div className="w-full flex flex-col gap-4">
+            <div className="text-xl font-semibold">
               Та манай системд хэр сэтгэл хангалуун байна вэ?
             </div>
-            <div className="mb-8 text-[15px] text-gray-200">
+            <div className="text-[15px] text-gray-200">
               Бидний гүйцэтгэлийг үнэлнэ үү! Хэрэглэгчийн үнэлгээ болон шүүмж нь биднийг өсөн дэвжихэд тус болдог.
             </div>
           </div>
 
-          <div className="w-full" ref={buttonsRef}>
-            <div className="w-full flex justify-between items-center mb-8 text-lg text-white">
+          <div className="w-full flex justify-between items-center text-lg text-white">
               {rateButton()}
             </div>
-            <div className="text-red-600 mb-4">{message}</div>
+
+          <div className="w-full flex flex-col gap-4" ref={buttonsRef}>
+            {message ? (<div className="text-red-600">{message}</div>) : (null)}
             <button className="bg-[#7A58F4] w-full py-2 rounded-2xl text-lg text-white hover:bg-[#583db9] hover:text-gray-300" onClick={onSubmit}>
               Илгээх
             </button>
